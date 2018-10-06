@@ -28,6 +28,7 @@ if "%~1" == "" (
 		set r=!r:ThunkableSwitch=SwitchToggle!
 		echo !r!>%%s
 	)
+	setlocal disabledelayedexpansion
 	
 	cd ..\..\..\..\..\
 	7z a -tzip "%~n1_makeroid.aia" "%cd%\%~n0_temp\*" > nul
