@@ -1,11 +1,11 @@
 @echo off
-title Thunkable to Makeroid AIA converter (%~n0)
+title Thunkable to Kodular AIA converter (%~n0)
 
 if "%~1" == "" (
 	echo Drop an AIA file to %~nx0 or type "%~n0 <AIA file>" in the terminal
 	pause
 ) else (
-	echo Converting %~nx1 to Makeroid...
+	echo Converting %~nx1 to Kodular...
 	if exist "%~n0_temp" (
 		rd /s /q "%~n0_temp"
 	)
@@ -19,7 +19,11 @@ if "%~1" == "" (
 	for /f usebackq %%s in (`dir /b "*"`) do cd %%s
 	setlocal enabledelayedexpansion
 	for /f usebackq %%s in (`dir /b/s "*"`) do (
-		set /p r=<%%s
+		REM set /p r=<%%s
+		set r=
+		
+		REM for /f "tokens=* delims=" %%i in (%%s) do set r=!r! %%i
+		REM for /f "tokens=* delims= usebackq" %%i in (`type %%s`) do set r=!r! %%i
 		set r=!r:ThunkablePushNotification=PushNotifications!
 		set r=!r:ThunkableFloatingActionButton=MakeroidFab!
 		set r=!r:ThunkableAdMobInterstitial=AdMobInterstitial!
@@ -31,9 +35,9 @@ if "%~1" == "" (
 	setlocal disabledelayedexpansion
 	
 	cd ..\..\..\..\..\
-	7z a -tzip "%~n1_makeroid.aia" "%cd%\%~n0_temp\*" > nul
-	REM "%programfiles%\7-Zip\7z" a -tzip "%~n1_makeroid.aia" "%cd%\%~n0_temp\*"" > nul
+	7z a -tzip "%~n1_kodular.aia" "%cd%\%~n0_temp\*" > nul
+	REM "%programfiles%\7-Zip\7z" a -tzip "%~n1_kodular.aia" "%cd%\%~n0_temp\*"" > nul
 	rd /s /q "%~n0_temp"
-	echo Done! You can import %~n1_makeroid.aia in Makeroid.
+	echo Done! You can import %~n1_kodular.aia in Kodular.
 	pause
 )
