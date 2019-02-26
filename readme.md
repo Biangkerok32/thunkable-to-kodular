@@ -8,3 +8,5 @@ How to use:
  3. A new file called *_kodular.aia has been created
  4. Go to Kodular and import the new AIA file
  5. That's all. Don't hesitate to report an issue if something doesn't work.
+
+I plan to rewrite the converter in another language (most likely in Python) because of the limitations of the Windows scripting language that truncates big AIA files.
