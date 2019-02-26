@@ -8,5 +8,3 @@ How to use:
  3. A new file called *_kodular.aia has been created
  4. Go to Kodular and import the new AIA file
  5. That's all. Don't hesitate to report an issue if something doesn't work.
-
-Note: The [7z.exe](https://www.7-zip.org/) binary is included to simplify zip and unzip processes. If you want to use your own 7-Zip, uncomment all commented lines and remove the line above them.
