@@ -31,7 +31,6 @@ if len(argv)==2:
             new_aia_file=ZipFile(new_file_name+"_kodular"+extension,"w",ZIP_DEFLATED)
             temp_dir_path=path.realpath(temp_folder_name)
             chdir(temp_folder_name)
-            print(temp_dir_path)
             for dirs,sdirs,files in walk(temp_dir_path):
                 for f in files:
                     new_aia_file.write(path.relpath(dirs)+"/"+f)
