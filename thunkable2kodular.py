@@ -20,12 +20,15 @@ if len(argv)==2:
             aia_file=ZipFile(argv[1])
             aia_file.extractall(path=temp_folder_name)
             aia_file.close()
-            #=== I need to change this part because LF are converted to CRLF
             for i in iglob(temp_folder_name+"/src/com/*/*/*",recursive=1):
+                opened_file=open(i,"r")
+                opened_file_content=opened_file.read()
+                opened_file.close()
                 for t in replace_list:
-                    for line in FileInput(i,inplace=1):
-                        print(line.replace(t[0],t[1]),end="")
-            #===
+                    opened_file_content=opened_file_content.replace(t[0],t[1])
+                opened_file=open(i,"w")
+                opened_file.write(opened_file_content)
+                opened_file.close()
             extension=path.splitext(argv[1])[1]
             new_file_name=path.splitext(argv[1])[0]
             new_aia_file=ZipFile(new_file_name+"_kodular"+extension,"w",ZIP_DEFLATED)
