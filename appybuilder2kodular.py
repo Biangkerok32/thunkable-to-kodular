@@ -7,7 +7,7 @@ from glob import iglob
 from fileinput import FileInput
 from ntpath import basename
 
-replace_list=[["PushNotification","PushNotifications"],["FloatingButton","MakeroidFab"],["AdMob","AdmobBanner"],["Switch","SwitchToggle"]]
+replace_list=[["PushNotification","PushNotifications"],["Airtable","MakeroidAirtable"],["FloatingButton","MakeroidFab"],["FtpManager","MakeroidFtp"],["WallpaperManager","Wallpaper"],["WiFiManager","WiFiAdmin"],["AdMob","AdmobBanner"],["RewardedVideo","AdmobRewardedVideo"],["Switch","SwitchToggle"]]
 
 if len(argv)==2:
     print("Converting "+argv[1]+" to Kodular...")
